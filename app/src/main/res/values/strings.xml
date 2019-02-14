@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Heart Rate Tracker</string>
+    <string name="MainText">Select a Heart Rate:</string>
+    <string name="Pulse">Pulse:</string>
 </resources>
