@@ -2,11 +2,14 @@ package css.cis3334.heartratetracker;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 /**
  * Created by Tom Gibbons in Feb 2017.
@@ -48,8 +51,27 @@ public class HeartRateAdapter  extends ArrayAdapter<HeartRate> {
         //get the heart rate we are displaying
         HeartRate hr = hrList.getHeartRate(position);
 
-        TextView tvPulse=(TextView)view.findViewById(R.id.textViewPulse);
+        TextView tvPulse = (TextView)view.findViewById(R.id.textViewPulse);
         tvPulse.setText(hr.getPulse().toString());
+
+        TextView tvRange = (TextView)view.findViewById(R.id.textViewRange);
+        tvRange.setText(hr.getRangeName().toString());
+
+        if(hr.getRange() < 2){
+            tvRange.setTextColor(ContextCompat.getColor(context, R.color.rangeGreen));
+        }
+        else if(hr.getRange() < 3){
+            tvRange.setTextColor(ContextCompat.getColor(context, R.color.rangeYellow));
+        }
+        else if(hr.getRange() < 5){
+            tvRange.setTextColor(ContextCompat.getColor(context, R.color.rangeOrange));
+        }
+        else {
+            tvRange.setTextColor(ContextCompat.getColor(context, R.color.rangeRed));
+        }
+
+        TextView tvDescription = (TextView)view.findViewById(R.id.textViewDescription);
+        tvDescription.setText("\"" + hr.getRangeDescrtiption().toString() + "\"");
 
         return(view);
     }
