@@ -54,13 +54,15 @@ public class HeartRateAdapter  extends ArrayAdapter<HeartRate> {
         TextView tvPulse = (TextView)view.findViewById(R.id.textViewPulse);
         tvPulse.setText(hr.getPulse().toString());
 
+        //Set range to Heart Rate Range Name
         TextView tvRange = (TextView)view.findViewById(R.id.textViewRange);
         tvRange.setText(hr.getRangeName().toString());
 
+        //Check range and change color accordingly
         if(hr.getRange() < 2){
             tvRange.setTextColor(ContextCompat.getColor(context, R.color.rangeGreen));
         }
-        else if(hr.getRange() < 3){
+        else if(hr.getRange() < 4){
             tvRange.setTextColor(ContextCompat.getColor(context, R.color.rangeYellow));
         }
         else if(hr.getRange() < 5){
@@ -70,6 +72,7 @@ public class HeartRateAdapter  extends ArrayAdapter<HeartRate> {
             tvRange.setTextColor(ContextCompat.getColor(context, R.color.rangeRed));
         }
 
+        //Set description to heart rate description
         TextView tvDescription = (TextView)view.findViewById(R.id.textViewDescription);
         tvDescription.setText("\"" + hr.getRangeDescrtiption().toString() + "\"");
 

@@ -15,13 +15,15 @@
         android:id="@+id/textViewMainText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/MainText"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="18sp"
+        android:textSize="14sp"
         tools:text="@string/MainText" />
 
     <ListView
         android:id="@+id/listViewHeartRate"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:headerDividersEnabled="false" />
 
 </LinearLayout>
